@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health record Registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../assets/images/icons/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+</head>
+
+<body>
+
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+            <form class="login100-form validate-form" action="register" method="post" oninput='pin2.setCustomValidity(pin2.value != pin.value ? "Passwords do not match." : ""); number2.setCustomValidity(number2.value != number.value ? "Numbers do not match." : "")' >
+            
+				<center>	
+                <span class="login100-form-title p-b-37">
+					Fill in your basic health information<br/><br/>
+                </span>
+                
+                <!--First Name-->
+                <span class="login100-form-lables p-b-17">First Name:</span>
+                <div class="wrap-input100 validate-input m-b-20" data-validate="Enter Your First Name">
+                    <input class="input100" type="text" name="firstName">
+                    <span class="focus-input100"></span>
+                </div>
+                <!--Last Name-->
+                <span class="login100-form-lables p-b-17">Last Name:</span>
+                <div class="wrap-input100 validate-input m-b-20" data-validate="Enter Your Last Name">
+                    <input class="input100" type="text" name="lastName">
+                    <span class="focus-input100"></span>
+                </div>
+                <!--Email-->
+                <span class="login100-form-lables p-b-17">Email:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Email">
+                    <input class="input100" type="email" name="email" >
+                    <span class="focus-input100"></span>
+                </div>
+                <!--PIN-->
+                <span class="login100-form-lables p-b-17">Password:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter your Password">
+                    <input class="input100" type="password" name="pin">
+                    <span class="focus-input100"></span>
+                </div>
+                <span class="login100-form-lables p-b-17">Confirm Password:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter your Password">
+                    <input class="input100" type="password" name="pin2">
+                    <span class="focus-input100"></span>
+                </div>
+                <!--Phone number-->
+                <span class="login100-form-lables p-b-17">Phone Number:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter Your phone">
+                    <input class="input100" type="text" name="phoneNumber">
+                    <span class="focus-input100"></span>
+                </div>
+                <!--Emergency Contact-->
+                <span class="login100-form-lables p-b-17">Emergency Contact:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter Your emergency contact">
+                    <input class="input100" type="text" name="emergency">
+                    <span class="focus-input100"></span>
+                </div>
+                <!--Emergency Contact-->
+                <span class="login100-form-lables p-b-17">Emergency Instruction:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter Your emergency contact">
+                    <input class="input100" type="text" name="emergencyIns">
+                    <span class="focus-input100"></span>
+                </div>
+                <!--Street Address-->
+                <span class="login100-form-lables p-b-17">Street Address:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter your street address">
+                    <input class="input100" type="text" name="streetAddress">
+                    <span class="focus-input100"></span>
+                </div>
+                <!--Address-->
+                <span class="login100-form-lables p-b-17">City:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter your city">
+                    <input class="input100" type="text" name="city">
+                    <span class="focus-input100"></span>
+                </div>
+                <!--Address-->
+                <span class="login100-form-lables p-b-17">State:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter your state">
+                    <input class="input100" type="text" name="state">
+                    <span class="focus-input100"></span>
+                </div>
+                <!--Address-->
+                <span class="login100-form-lables p-b-17">Zip Code:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter your zip code">
+                    <input class="input100" type="text" name="zipCode">
+                    <span class="focus-input100"></span>
+                </div>
+                <!--Date of birth-->
+                <span class="login100-form-lables p-b-17">Date of Birth:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Date of birth">
+                    <input class="input100" type="date" name="dob" >
+                    <span class="focus-input100"></span>
+                </div>
+                <!--Gender-->
+                <span class="login100-form-lables p-b-17">Sex:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter Gender">
+                <select name="gender" class="custom-select">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    </select>
+                    <span class="focus-input100"></span>
+                </div>
+                <!--Blood Type-->
+                <span class="login100-form-lables p-b-17">Blood Type:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter Blood Type">
+                <select name="btype" class="custom-select">
+                    <option value="O-">O-</option>
+                    <option value="O+">O+</option>
+                    <option value="A-">A-</option>
+                    <option value="A+">A+</option>
+                    <option value="B-">B-</option>
+                    <option value="B+">B+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="AB+">AB+</option>
+                    </select>
+                    <span class="focus-input100"></span>
+                </div>
+                <!--chronic-->
+                <span class="login100-form-lables p-b-17">Chronic Medical Conditions:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter chronic medical conditions">
+                    <input class="input100" type="text" name="chronic" >
+                    <span class="focus-input100"></span>
+                </div>
+
+                <!--allergies-->
+                <span class="login100-form-lables p-b-17">Allergies:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter allergies">
+                    <input class="input100" type="text" name="allergies" >
+                    <span class="focus-input100"></span>
+                </div>
+                <!--surgeries-->
+                <span class="login100-form-lables p-b-17">Previous Surgeries or Procedures:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter previous surgeries or procedures">
+                    <input class="input100" type="text" name="surgeries" >
+                    <span class="focus-input100"></span>
+                </div>
+                <!--medications-->
+                <span class="login100-form-lables p-b-17">Current Medications:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter current medications">
+                    <input class="input100" type="text" name="medications" >
+                    <span class="focus-input100"></span>
+                </div>
+                <!--immunization-->
+                <span class="login100-form-lables p-b-17">Immunization History:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter immunization history">
+                    <input class="input100" type="text" name="immunization" >
+                    <span class="focus-input100"></span>
+                </div>
+                <!--familyHistory-->
+                <span class="login100-form-lables p-b-17">Family Medical History:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter family medical history">
+                    <input class="input100" type="text" name="familyHistory" >
+                    <span class="focus-input100"></span>
+                </div>
+                <!--physicianName-->
+                <span class="login100-form-lables p-b-17">Primary Care Physician Name:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter primary care physician name">
+                    <input class="input100" type="text" name="physicianName" >
+                    <span class="focus-input100"></span>
+                </div>
+                <!--physicianContact-->
+                <span class="login100-form-lables p-b-17">Primary Care Physician Contact:</span>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter primary care physician contact">
+                    <input class="input100" type="text" name="physicianContact" >
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button type="submit" class="login100-form-btn" name="add">
+                        Create
+                    </button>
+                </div>
+
+                <div class="text-center p-t-57 p-b-20">
+                    <span class="txt1">
+						
+					</span>
+                </div>
+            </form>
+
+        </div>
+        
+    </div>
+    
+    <footer id="sticky-footer" class="py-3 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Supervised by Prof. Michael Zijlstra</small>
+    </div>
+  </footer>
+
+    <script src="../assets/js/main.js"></script>
+
+</body>
+</html>

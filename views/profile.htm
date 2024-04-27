@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{.FirstName}} Personal Health Record</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/mdb.min.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/bottom-nav.css">
+  <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="../assets/js/jquery.tabledit.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+  <script src="../assests/js/jquery.form.js"></script>
+  <style>
+    body {
+      background: #f5f7fa;
+    }
+  </style>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="loggedin">
+  <!--navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#basic_info"><i class="fas fa-edit"></i>Edit Basic Information</a></li>
+        
+        <!--<li class="nav-item"><a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt" id="Logout"></i> Logout</a></li> -->
+      </ul>
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle"></i>{{.FirstName}} {{.LastName}} </a>
+          <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+            <a class="dropdown-item" href="logout">Log out</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+  <!--end of navbar-->
+  <br>
+  <!--content -->
+  
+  <div class="container">
+    <span style="color:black">
+      <h2>Personal Health Record</h2>
+    </span>
+    <br>
+    <div class="shadow p-3 mb-5 bg-white rounded">
+      <center>
+        <h4>In Case of Emergency Information</h4>
+      </center>
+      <div class="row">
+        <br />
+        <div class="col-sm">
+          <center>
+            <div class="card" style="width:80%">
+              <img class="card-img-top" src="../assets/images/male_avatar.png" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title">{{.FirstName}}</h4>
+                <a class="btn btn-danger" href="tel:{{.PhoneNumber}}">Call Emergency Contact Now!</a>
+              </div>
+              <h2><span class="badge badge-warning"></span></h2>
+            </div>
+          </center>
+          <br />
+        </div>
+        <div class="col-sm">
+          <br>
+          <!--One of three columns-->
+          <table class="table table-hover">
+            <tr class="table-primary">
+              <td width="40%"><b>Name:</b></td>
+              <td>{{.FirstName}} {{.LastName}} </td>
+            </tr>
+            <td><b>Date of birth:</b></td>
+            <td>{{.Dob}}</td>
+            </tr>
+            <tr>
+              <td><b>Address:</b></td>
+              <td>{{.AddressDTO.StreetAddress}}, {{.AddressDTO.City}}, {{.AddressDTO.State}}</td>
+            </tr>
+            <tr>
+              <td><b>Gender:</b></td>
+              <td>{{.Sex}}</td>
+            </tr>
+            <tr>
+              <td><b>Blood Type:</b></td>
+              <td>{{.BloodType}}</td>
+            </tr>
+            <td><b>In Case of Emergency Contacts:</b></td>
+            <td>{{.PhoneNumber}}</td>
+            </tr>
+            <tr>
+              <td><b>In Case of Emergency Instructions:</b></td>
+              <td>{{.IceInstructions}}</td>
+              <td style="white-space: pre-line"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- medical review -->
+  <div class="container">
+    <div class="shadow p-3 bg-white rounded">
+      <h2>Medical Brief</h2>
+      <span class="float-right">
+        <button type="button" class="btn btn-primary yellow darken-3 waves-effect" data-toggle="modal" data-target="#basic_info"><i class="fas fa-user-circle"></i>
+          Edit Basic Information
+        </button>
+      </span>
+      <br>
+      <br>
+      <div class="col-sm">
+        <table class="table table-hover">
+          <tr>
+            <td><b>Allergies:</b></td>
+            <td>{{.Allergies}}</td>
+          </tr>
+          <tr>
+            <td><b>Chronic Medical Conditions:</b></td>
+            <td>{{.Chronic}}</td>
+          </tr>
+          <tr>
+            <td><b>Prior Surgeries (if any):</b></td>
+            <td>{{.Surgeries}}</td>
+          </tr>
+          <tr>
+            <td><b>Medications Condition (if any):</b></td>
+            <td>{{.Medications}}</td>
+          </tr>
+          <tr>
+            <td><b>Immunization Condition (if any):</b></td>
+            <td>{{.Immunization}}</td>
+          </tr>
+          <tr>
+            <td><b>Family History:</b></td>
+            <td>{{.FamilyHistory}}</td>
+          </tr>
+          <tr>
+            <td><b>Physician Name (if any):</b></td>
+            <td>{{.PhysicianName}}</td>
+          </tr>
+          <tr>
+            <td><b>Physician Contact (if any):</b></td>
+            <td>{{.PhysicianContact}}</td>
+          </tr>
+          <tr>
+        </table>
+      </div>
+    </div>
+    </br>
+
+  </br>
+  <div class="shadow p-3 mb-5 bg-white rounded">
+
+    <!-- Basic info Modal -->
+  <div class="modal fade" id="basic_info" tabindex="-1" role="dialog" aria-labelledby="basic_info" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="basic_info_label">Edit Basic Information</h5>
+          <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="editProfile" enctype="multipart/form-data">
+            <div class="form-group row">
+              <input name="email" type="text" required="required" class="form-control" value="{{.Email}}" hidden="true">
+              <input name="password" type="text" required="required" class="form-control" value="{{.Password}}" hidden="true">
+              <input name="email" type="text" required="required" class="form-control" value="{{.Email}}" hidden="true">
+              <label for="fullname" class="col-4 col-form-label"><b>First Name</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-address-book"></i>
+                    </div>
+                  </div>
+                  <input name="firstName" type="text" required="required" class="form-control" value="{{.FirstName}}">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="fullname" class="col-4 col-form-label"><b>Last Name</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-address-book"></i>
+                    </div>
+                  </div>
+                  <input name="lastName" type="text" required="required" class="form-control" value="{{.LastName}}">
+                </div>
+              </div>
+            </div>
+            <!--Profile Picture field-->
+            <div class="form-group row">
+              <label class="col-4 col-form-label" for="profile_picture"><b>Profile Picture</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-address-card"></i>
+                    </div>
+                  </div>
+                  <input name="profile_picture" type="file" class="form-control">
+                </div>
+              </div>
+            </div>
+            <!--Date of birth field-->
+            <div class="form-group row">
+              <label class="col-4 col-form-label" for="age"><b>Date of Birth</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                  </div>
+                  <input name="age" type="date" required="required" class="form-control" value="{{.Dob}}">
+                </div>
+              </div>
+            </div>
+            <!--Blood Type input field-->
+            <div class="form-group row">
+              <label for="btype" class="col-4 col-form-label"><b>Blood Type</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-medkit"></i>
+                    </div>
+                  </div>
+                  <input name="btype" type="text" required="required" class="form-control" value="{{.BloodType}}">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="contacts" class="col-4 col-form-label"><b>Phone Number</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-phone"></i>
+                    </div>
+                  </div>
+                  <input name="contacts" type="text" required="required" class="form-control" value="{{.PhoneNumber}}">
+                </div>
+              </div>
+            </div>
+            <!--Address input field-->
+            <div class="form-group row">
+              <label for="address" class="col-4 col-form-label"><b>Street Address</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-address-book"></i>
+                    </div>
+                  </div>
+                  <input name="streetAddress" type="text" required="required" class="form-control" value="{{.AddressDTO.StreetAddress}}">
+                </div>
+              </div>
+            </div>
+            <!--Address input field-->
+            <div class="form-group row">
+              <label for="address" class="col-4 col-form-label"><b>City</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-address-book"></i>
+                    </div>
+                  </div>
+                  <input name="city" type="text" required="required" class="form-control" value="{{.AddressDTO.City}}">
+                </div>
+              </div>
+            </div>
+            <!--Address input field-->
+            <div class="form-group row">
+              <label for="address" class="col-4 col-form-label"><b>State</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-address-book"></i>
+                    </div>
+                  </div>
+                  <input name="state" type="text" required="required" class="form-control" value="{{.AddressDTO.State}}">
+                </div>
+              </div>
+            </div>
+            <!--Address input field-->
+            <div class="form-group row">
+              <label for="address" class="col-4 col-form-label"><b>Zip Code</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-address-book"></i>
+                    </div>
+                  </div>
+                  <input name="zip" type="text" required="required" class="form-control" value="{{.AddressDTO.ZipCode}}">
+                </div>
+              </div>
+            </div>
+            <!--Gender input field-->
+            <div class="form-group row">
+              <label for="mentalc" class="col-4 col-form-label"><b>Gender</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-align-justify"></i>
+                    </div>
+                  </div>
+                  <select name="gender" class="custom-select">
+                    <option selected value="{{.Sex}}">{{.Sex}}</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>                      
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!--Allergies input field-->
+            <div class="form-group row">
+              <label for="allergies" class="col-4 col-form-label"><b>Allergies</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-align-justify"></i>
+                    </div>
+                  </div>
+                  <input name="allergies" type="text" required="required" class="form-control" value="{{.Allergies}}">
+                </div>
+              </div>
+            </div>
+            <!--Prior Surgeries input field-->
+            <div class="form-group row">
+              <label for="surgeries" class="col-4 col-form-label"><b>Prior Surgeries</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-align-justify"></i>
+                    </div>
+                  </div>
+                  <input name="surgeries" type="text" required="required" class="form-control" value="{{.Surgeries}}">
+                </div>
+              </div>
+            </div>
+            <!--Chronic medical Conditions input field-->
+            <div class="form-group row">
+              <label for="cmc" class="col-4 col-form-label"><b>Chronic Medical Conditions</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-align-justify"></i>
+                    </div>
+                  </div>
+                  <input name="cmc" type="text" required="required" class="form-control" value="{{.Chronic}}">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="contacts" class="col-4 col-form-label"><b>Medications</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-phone"></i>
+                    </div>
+                  </div>
+                  <input name="medications" type="text" required="required" class="form-control" value="{{.Medications}}">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label for="contacts" class="col-4 col-form-label"><b>Immunization</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-phone"></i>
+                    </div>
+                  </div>
+                  <input name="immunization" type="text" required="required" class="form-control" value="{{.Immunization}}">
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="form-group row">
+              <label for="contacts" class="col-4 col-form-label"><b>Family History</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-phone"></i>
+                    </div>
+                  </div>
+                  <input name="familyHistory" type="text" required="required" class="form-control" value="{{.FamilyHistory}}">
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="form-group row">
+              <label for="contacts" class="col-4 col-form-label"><b>Physician Name</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-phone"></i>
+                    </div>
+                  </div>
+                  <input name="physicianName" type="text" required="required" class="form-control" value="{{.PhysicianName}}">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="contacts" class="col-4 col-form-label"><b>Physician Contact</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-phone"></i>
+                    </div>
+                  </div>
+                  <input name="physicianContact" type="text" required="required" class="form-control" value="{{.PhysicianContact}}">
+                </div>
+              </div>
+            </div>
+
+            <!--Contacts input field-->
+            <div class="form-group row">
+              <label for="contacts" class="col-4 col-form-label"><b>Emergency Contact</b></label>
+              <div class="col-8">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-phone"></i>
+                    </div>
+                  </div>
+                  <input name="emergencyContact" type="text" required="required" class="form-control" value="{{.EmergencyContact}}">
+                </div>
+              </div>
+            </div>
+            
+            <!--In Case of Emergency Instructions input field-->
+            <div class="form-group row">
+              <label for="contacts" class="col-4 col-form-label"><b>In Case of Emergency Instructions</b></label>
+              <div class="col-8">
+                <textarea cols="40" rows="4" name="ice_instructions" required="required" class="form-control">{{.IceInstructions}}
+                </textarea>
+              </div>
+            </div>
+            <!--
+                submit button
+                -->
+            <div class="form-group row">
+              <div class="offset-4 col-8">
+                <button type="submit" class="btn btn-primary" name="update_profiles">Update</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="../assets/js/popper.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/tabledit_script.js"></script>
+  <script src="../assets/viewnedit_scripts.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/mdb.min.js"></script>
+  <script>
+    $('#input_starttime').pickatime({
+      twelvehour: true,
+      autoclose: true,
+    });
+  </script>
+  <!-- Footer -->
+  <footer id="sticky-footer" class="py-3 bg-dark text-white-50">
+    <div class="container text-center">
+      <small> Supervised by Prof. Michael Zijlstra</small>
+    </div>
+  </footer>
+  <!-- Footer  -->
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FIEPHRS LOGIN</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/css/flag-icon.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/mdb.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/bottom-nav.css">
+    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.form.js"></script>
+    <script src="../assets/js/notify.js"></script>
+    <style>
+        html,
+        body {
+            background: #f5f7fa;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .footer {
+            flex-shrink: 0;
+        }
+
+        .md-outline.select-wrapper+label {
+            top: .5em !important;
+            z-index: 2 !important;
+        }
+
+        #tag {
+            cursor: pointer;
+        }
+
+        /* Color of the links BEFORE scroll */
+        .navbar-scroll .nav-link,
+        .navbar-scroll .navbar-toggler-icon,
+        .navbar-scroll .navbar-brand {
+            color: #fff;
+        }
+
+        /* Color of the links AFTER scroll */
+        .navbar-scrolled .nav-link,
+        .navbar-scrolled .navbar-toggler-icon,
+        .navbar-scrolled .navbar-brand {
+            color: #fff;
+        }
+
+        /* Color of the navbar AFTER scroll */
+        .navbar-scroll,
+        .navbar-scrolled {
+            background-color: #cbbcb1;
+        }
+
+        .mask-custom {
+            backdrop-filter: blur(5px);
+            background-color: rgba(255, 255, 255, .15);
+        }
+
+        .navbar-brand {
+            font-size: 1.75rem;
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <!--navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+            <a class="navbar-brand" href="http://localhost:9091">
+                 FIEPHRS
+            </a>
+
+        </nav>
+
+         <!--end of navbar-->
+         <br>
+         <br>
+         <br>
+         <br>
+         <!--content -->
+ 
+         <div class="container">
+             <!-- Material form register -->     
+             <div class="card card-cascade narrower">
+ 
+                 <div class="card-body px-lg-5 pt-4">
+                     <h3 align="center">FIEPHRS</h3>
+ 
+                     <form action="login" method="post" class="needs-validation">
+ 
+                         <div class="md-form">
+                             <label for="validationName"></label>
+                             <input type="email" name="email" placeholder="Email" class="form-control" id="email" >
+                                                     </div>
+ 
+                         <div class="md-form">
+                             <label for="pin"></label>
+                             <input type="password" id="pin" placeholder="Password" class="form-control" name="password" id="pin" >
+                                                     </div>
+                         <center>
+                         <button class="btn btn-warning yellow darken-3 btn-rounded text-center my-4 waves-effect" type="submit">Enter</button>
+                             </center>
+                     </form>
+                 </div>
+             </div>
+         </div>
+     </div>
+     </br>
+        <!-- Footer -->
+    <footer class="footer">
+        <footer id="sticky-footer" class="py-3 bg-dark text-white-50">
+            <div class="container text-center">
+                <small> &copy;
+                    Supervised by Prof. Michael Zijlstra
+                    </small>
+            </div>
+        </footer>
+    </footer>
+    <!-- Footer  -->
+
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/mdb.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+
+</body>
+
+</html>
